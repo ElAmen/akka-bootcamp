@@ -18,10 +18,25 @@ namespace WinTail
             //YOU NEED TO FILL IN HERE
             // make consoleWriterActor using these props: Props.Create(() => new ConsoleWriterActor())
             // make consoleReaderActor using these props: Props.Create(() => new ConsoleReaderActor(consoleWriterActor))
-            var consoleWriterActor = MyActorSystem.ActorOf(Props.Create(() =>new ConsoleWriterActor()), "consoleWriterActor");
-            
-            var consoleReaderActor = MyActorSystem.ActorOf(Props.Create<ConsoleReaderActor>(consoleWriterActor), "consoleReaderActor"); 
-            //or var consoleReaderActor = MyActorSystem.ActorOf(Props.Create(() =>new ConsoleReaderActor(consoleWriterActor)), "consoleReaderActor");
+
+            //var consoleWriterActor = MyActorSystem.ActorOf(Props.Create(() =>new ConsoleWriterActor()), "consoleWriterActor");
+
+            //var consoleReaderActor = MyActorSystem.ActorOf(Props.Create<ConsoleReaderActor>(consoleWriterActor), "consoleReaderActor"); 
+            //// Lambda way of creating actors
+            //// var consoleReaderActor = MyActorSystem.ActorOf(Props.Create(() =>new ConsoleReaderActor(consoleWriterActor)), "consoleReaderActor");
+
+            //Generic way
+            Props consoleWriteActorProps = Props.Create<ConsoleWriterActor>();
+            var consoleWriterActor = MyActorSystem.ActorOf(consoleWriteActorProps, "consoleWriterActor");
+
+            // Lambda way
+            Props validationActorProps = Props.Create(() => new ValidationActor(consoleWriterActor));
+            var validationActor = MyActorSystem.ActorOf(validationActorProps, "validationActor");
+
+            var consoleReaderActorProps = Props.Create<ConsoleReaderActor>(validationActor);
+            var consoleReaderActor = MyActorSystem.ActorOf(consoleReaderActorProps, "consoleReaderActor");
+
+
 
             // tell console reader to begin
             //YOU NEED TO FILL IN HERE
