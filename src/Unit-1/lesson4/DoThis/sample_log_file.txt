@@ -53,3 +53,19 @@ lj1090.inktomisearch.com - - [07/Mar/2004:17:18:41 -0800] "GET /twiki/bin/view/M
 64.242.88.10 - - [07/Mar/2004:17:53:45 -0800] "GET /twiki/bin/search/Main/SearchResult?scope=text�ex=on&search=Office%20*Locations[^A-Za-z] HTTP/1.1" 200 7771
 64.242.88.10 - - [07/Mar/2004:17:53:45 -0800] "GET /twiki/bin/search/Main/SearchResult?scope=text�ex=on&search=Office%20*Locations[^A-Za-z] HTTP/1.1" 200 7771
 
+"GET /twiki/bin/se
+
+64.242.88.10 - - [07/Mar/2004:17:53:45 -0800] "GET /twiki/bin/search/Main/SearchResult?scope=text�ex=on&search=Office%20*Locations[^A-Za-z] HTTP/1.1" 200 7771
+64.242.88.10 - - [07/Mar/2004:17:53:45 -0800] "GET /twiki/bin/search/Main/SearchResult?scope=text�ex=on&search=Office%20*Locations[^A-Za-z] HTTP/1.1" 200 7771
+64.242.88.10 - - [07/Mar/2004:17:53:45 -0800] "GET /twiki/bin/search/Main/SearchResult?scope=text�ex=on&search=Office%20*Locations[^A-Za-z] HTTP/1.1" 200 7771
+64.242.88.10 - - [07/Mar/2004:17:53:45 -0800] "GET /twiki/bin/search/Main/SearchResult?scope=text�ex=on&search=Office%20*Locations[^A-Za-z] HTTP/1.1" 200 7771
+
+"GET /twiki/bin/se
+"GET /twiki/bin/se
+"GET /twiki/bin/se
+"GET /twiki/bin/se
+
+
+
+64.242.88.10 - - [07/Mar/2004:17:53:45 -0800] "GET /twiki/bin/search/Main/SearchResult?scope=text�ex=on&search=Office%20*Locations[^A-Za-z] HTTP/1.1" 200 7771
+64.24
