@@ -30,14 +30,24 @@ namespace WinTail
             var consoleWriterActor = MyActorSystem.ActorOf(consoleWriteActorProps, "consoleWriterActor");
 
             // Lambda way
-            Props validationActorProps = Props.Create(() => new ValidationActor(consoleWriterActor));
-            var validationActor = MyActorSystem.ActorOf(validationActorProps, "validationActor");
+            //Props validationActorProps = Props.Create(() => new ValidationActor(consoleWriterActor));
+            //var validationActor = MyActorSystem.ActorOf(validationActorProps, "validationActor");
+
+            //var consoleReaderActorProps = Props.Create<ConsoleReaderActor>(validationActor);
+            //var consoleReaderActor = MyActorSystem.ActorOf(consoleReaderActorProps, "consoleReaderActor");
+
+            // make tailCoordinatorActor
+            Props tailCoordinatorProps = Props.Create(() => new TailCoordinatorActor());
+            IActorRef tailCoordinatorActor = MyActorSystem.ActorOf(tailCoordinatorProps, "tailCoordinatorActor");
+
+            // pass tailCoordinatorActor to fileValidatorActorProps (just adding one extra arg)
+            Props fileValidatorActorProps = Props.Create(() =>
+            new FileValidatorActor(consoleWriterActor, tailCoordinatorActor));
+            IActorRef validationActor = MyActorSystem.ActorOf(fileValidatorActorProps, "validationActor");
+
 
             var consoleReaderActorProps = Props.Create<ConsoleReaderActor>(validationActor);
             var consoleReaderActor = MyActorSystem.ActorOf(consoleReaderActorProps, "consoleReaderActor");
-
-
-
             // tell console reader to begin
             //YOU NEED TO FILL IN HERE
             consoleReaderActor.Tell(ConsoleReaderActor.StartCommand);
